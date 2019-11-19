@@ -13,23 +13,19 @@ namespace Master.Controllers
             return Vault.TheBank.GetBalance();
         }
 
-        [Route("add/{money}")]
-        [HttpGet]
-        public void Add(double money)
+        [Route("add")]
+        [HttpPost]
+        public void Add([FromBody] double money)
         {
             Vault.TheBank.AddMoney(money);
         }
 
-        [Route("remove/{money}")]
-        [HttpGet]
-        public void Remove(double money)
+        [Route("remove")]
+        [HttpPost]
+        public void Remove([FromBody] double money)
         {
             Vault.TheBank.RemoveMoney(money);
         }
 
-    }
-    public static class Vault
-    {
-        public static Bankas TheBank = new Bankas();
     }
 }
